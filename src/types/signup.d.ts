@@ -3,5 +3,6 @@ export interface SignUp{
     lastName: string,
     email: string,
     phoneNumber: string,
-    password: string
+    password: string,
+    confirmPassword: string
 }
