@@ -1,5 +1,5 @@
 .signup-form-container {
-  @apply w-3/5 bg-white border border-gray-200 rounded-lg shadow-md m-4 p-8 h-3/4 sm:w-11/12;
+  @apply sm:w-3/5 bg-white border border-gray-200 rounded-lg shadow-md m-4 p-8 h-3/4 w-11/12;
   input {
     @apply bg-gray-50 border border-gray-300 my-3;
     @apply text-gray-900 text-sm rounded-md focus:ring-blue-500;
