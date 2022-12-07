@@ -1,0 +1,15 @@
+.signup-form-container {
+  @apply w-3/5 bg-white border border-gray-200 rounded-lg shadow-md m-4 p-8 h-3/4;
+  input {
+    @apply bg-gray-50 border border-gray-300 my-3;
+    @apply text-gray-900 text-sm rounded-md focus:ring-blue-500;
+    @apply focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600;
+    @apply dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500;
+  }
+
+  button {
+    @apply bg-blue-700 text-white hover:to-blue-800 font-medium;
+    @apply px-5 py-2.5 rounded-lg;
+    @apply text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800;
+  }
+}
