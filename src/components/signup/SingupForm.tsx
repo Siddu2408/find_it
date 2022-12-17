@@ -7,52 +7,6 @@ import { Link } from "react-router-dom";
 const validate = (values: SignUp) => {
   console.log("values are", values);
   const errors: FormikErrors<SignUp> = {};
-  if (!values.email) {
-    errors.email = "Required";
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-    errors.email = "Invalid email address";
-  }
-  if (!values.phoneNumber) {
-    errors.phoneNumber = "Required";
-  } else if (
-    !/^[6-9]{1}[0-9]{9}/i.test(values.phoneNumber) ||
-    String(values.phoneNumber).length > 10
-  ) {
-    errors.phoneNumber = "Invalid Phone Number";
-  }
-
-  if (!values.password) {
-    errors.password = "Required";
-  } else if (
-    !/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/i.test(values.password)
-  ) {
-    errors.password =
-      "Password must contains 6 to 20 characters which contain at least one numeric digit, one uppercase and one lowercase letter";
-  }
-
-  if (!values.confirmPassword) {
-    errors.confirmPassword = "Required";
-  } else if (values.password !== values.confirmPassword) {
-    errors.confirmPassword = "Password mismatch";
-  }
-
-  return errors;
-};
-
-const validate = (values: SignUp) => {
-  console.log("values are", values);
-  const errors: FormikErrors<SignUp> = {};
-  if (!values.firstName) {
-    errors.firstName = "Required";
-  } else if (values.firstName.length > 15) {
-    errors.firstName = "Must be 15 characters or less";
-  }
-
-  if (!values.lastName) {
-    errors.lastName = "Required";
-  } else if (values.lastName.length > 20) {
-    errors.lastName = "Must be 20 characters or less";
-  }
 
   if (!values.email) {
     errors.email = "Required";
