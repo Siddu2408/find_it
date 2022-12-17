@@ -2,21 +2,11 @@ import { Formik, Field, Form, FormikHelpers, FormikErrors } from "formik";
 
 import { SignUp } from "../../types/signup";
 import "./SingupForm.scss";
+import { Link } from "react-router-dom";
 
 const validate = (values: SignUp) => {
   console.log("values are", values);
   const errors: FormikErrors<SignUp> = {};
-  if (!values.firstName) {
-    errors.firstName = "Required";
-  } else if (values.firstName.length > 15) {
-    errors.firstName = "Must be 15 characters or less";
-  }
-
-  if (!values.lastName) {
-    errors.lastName = "Required";
-  } else if (values.lastName.length > 20) {
-    errors.lastName = "Must be 20 characters or less";
-  }
 
   if (!values.email) {
     errors.email = "Required";
@@ -52,8 +42,6 @@ const validate = (values: SignUp) => {
 
 const SingupForm: React.FC<{}> = () => {
   const initialValues: SignUp = {
-    firstName: "",
-    lastName: "",
     email: "",
     phoneNumber: "",
     password: "",
@@ -61,7 +49,7 @@ const SingupForm: React.FC<{}> = () => {
   };
   return (
     <div className='signup-form-container'>
-      <div className='text-grey-900 py-3 font-bold text-lg my-3 mt-4'>
+      <div className='text-grey-900 pb-3 font-bold text-xl my-1 flex justify-center'>
         Signup
       </div>
       <Formik
@@ -79,37 +67,6 @@ const SingupForm: React.FC<{}> = () => {
       >
         {({ errors, touched }) => (
           <Form>
-            <div className='grid gap-6 mb-6 md:grid-cols-2'>
-              <div>
-                <label
-                  htmlFor='firstName'
-                  className='block mb-2 text-sm font-medium text-grey-900 dark:text-white my-3'
-                >
-                  First Name
-                </label>
-                <Field
-                  id='firstName'
-                  name='firstName'
-                  placeholder='first name'
-                />
-                {touched.firstName && errors.firstName && (
-                  <div className='error'>{errors.firstName}</div>
-                )}
-              </div>
-              <div>
-                <label
-                  htmlFor='lastName'
-                  className='block mb-2 text-sm font-medium text-grey-900 dark:text-white my-3'
-                >
-                  Last Name
-                </label>
-                <Field id='lastName' name='lastName' placeholder='last name' />
-                {touched.lastName && errors.lastName && (
-                  <div className='error'>{errors.lastName}</div>
-                )}
-              </div>
-            </div>
-
             <label
               htmlFor='email'
               className='block mb-2 text-sm font-medium text-grey-900 dark:text-white my-3'
@@ -170,10 +127,16 @@ const SingupForm: React.FC<{}> = () => {
             {touched.confirmPassword && errors.confirmPassword && (
               <div className='error'>{errors.confirmPassword}</div>
             )}
-            <button type='submit'>Submit</button>
+            <button type='submit'>Create Account</button>
           </Form>
         )}
       </Formik>
+      <div>
+        Already have an account?{" "}
+        <Link to={"/"} className='text-blue-600'>
+          Log in
+        </Link>{" "}
+      </div>
     </div>
   );
 };
